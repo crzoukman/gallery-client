@@ -6,6 +6,7 @@ export interface IState {
   collection2: IGetPhotosApi[];
   collection3: IGetPhotosApi[];
   collection4: IGetPhotosApi[];
+  currentPage: number;
 }
 
 export interface ISetCollection {

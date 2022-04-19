@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useTypedDispatch, useTypedSelector } from 'redux/hooks';
-import { setIsLoading } from 'redux/slices/gallery.slice';
+import { setCurrentPage, setIsLoading } from 'redux/slices/gallery.slice';
 import { getPhotosAsyncAction } from 'redux/features/getPhotos/getPhotos.actions';
 
 export const useGetPhotos = () => {
@@ -13,6 +13,12 @@ export const useGetPhotos = () => {
   }
 
   useEffect(() => {
+    const page = localStorage.getItem('gallery-current-page');
+
+    if (page !== null) {
+      dispatch(setCurrentPage(+page));
+    }
+
     getPhotosHandler();
   }, []);
 
