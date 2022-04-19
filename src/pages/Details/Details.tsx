@@ -1,9 +1,7 @@
-import { FC } from "react"
+import { FC } from 'react';
 
 const Details: FC = () => {
-  return (
-    <div>Details</div>
-  );
+  return <div>Details</div>;
 };
 
 export default Details;

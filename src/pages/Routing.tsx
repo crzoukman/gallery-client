@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { FC } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import About from "./About/About";
-import Details from "./Details/Details";
-import Gallery from "./Gallery/Gallery";
-import NotFound from "./NotFound/NotFound";
+import About from './About/About';
+import Details from './Details/Details';
+import Gallery from './Gallery/Gallery';
+import NotFound from './NotFound/NotFound';
 
 const Routing: FC = () => {
   return (
