@@ -8,6 +8,7 @@ const state: IGalleryState = {
   collection3: [],
   collection4: [],
   currentPage: 0,
+  initialLoadCompleted: false,
 };
 
 const gallerySlice = createSlice({
@@ -34,9 +35,13 @@ const gallerySlice = createSlice({
     setCurrentPage: (state, { payload }: PayloadAction<number>) => {
       state.currentPage = payload;
     },
+    setInitialLoadCompleted: (state, { payload }: PayloadAction<boolean>) => {
+      state.initialLoadCompleted = payload;
+    },
   },
 });
 
-export const { setIsLoading, setCollection, setCurrentPage } = gallerySlice.actions;
+export const { setIsLoading, setCollection, setCurrentPage, setInitialLoadCompleted } =
+  gallerySlice.actions;
 
 export const galleryReducer = gallerySlice.reducer;

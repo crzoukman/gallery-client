@@ -7,6 +7,7 @@ export interface IGalleryState {
   collection3: IGetPhotosApi[];
   collection4: IGetPhotosApi[];
   currentPage: number;
+  initialLoadCompleted: boolean;
 }
 
 export interface IDetailsState {
