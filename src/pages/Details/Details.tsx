@@ -1,3 +1,4 @@
+import SuspenseImage from 'components/SuspenseImage/SuspenseImage';
 import { FC, useEffect } from 'react';
 import { Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -5,6 +6,14 @@ import { useTypedDispatch, useTypedSelector } from 'redux/hooks';
 import { setIsLoading, setPickedPhotoData } from 'redux/slices/details.slice';
 import { SpinnerStyled } from 'UI/Spinner.styled';
 import { getPhotoByIdAsyncAction } from './../../redux/features/getPhotoById/getPhotoById.actions';
+import {
+  ButtonStyled,
+  ContentWrapper,
+  DataItem,
+  DataWrapper,
+  ImageWrapperStyled,
+  WrapperStyled,
+} from './Details.styled';
 
 const Details: FC = () => {
   const dispatch = useTypedDispatch();
@@ -47,10 +56,29 @@ const Details: FC = () => {
           <Spinner animation="border" variant="primary" />
         </SpinnerStyled>
       ) : (
-        <div>
-          <div>{pickedPhotoData?.id}</div>
-          <div onClick={goBackHandler}>Back</div>
-        </div>
+        pickedPhotoData && (
+          <WrapperStyled>
+            <ContentWrapper>
+              <ImageWrapperStyled>{<SuspenseImage src={pickedPhotoData.url} />}</ImageWrapperStyled>
+              <DataWrapper>
+                <DataItem>
+                  <span>ID</span>
+                  <div>{pickedPhotoData.id}</div>
+                </DataItem>
+                <DataItem>
+                  <span>Category</span>
+                  <div> {pickedPhotoData.albumId}</div>
+                </DataItem>
+                <DataItem>
+                  <span>Title</span>
+                  <div>{pickedPhotoData.title}</div>
+                </DataItem>
+              </DataWrapper>
+            </ContentWrapper>
+
+            <ButtonStyled onClick={goBackHandler}>Back</ButtonStyled>
+          </WrapperStyled>
+        )
       )}
     </div>
   );
