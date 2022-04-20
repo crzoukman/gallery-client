@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISetCollection, IState } from './types';
+import { ISetCollection, IGalleryState } from './types';
 
-const state: IState = {
+const state: IGalleryState = {
   isLoadingGlobal: false,
   collection1: [],
   collection2: [],

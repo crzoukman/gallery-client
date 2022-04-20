@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useTypedSelector } from 'redux/hooks';
 import { CardsWrapperStyled, WrapperStyled, Card, ButtonStyled } from './GalleryStyled';
 import SuspenseImage from 'components/SuspenseImage/SuspenseImage';
-import { IGetPhotosApi } from 'redux/features/getPhotos/types';
 import { useNavigate } from 'react-router-dom';
 
 const Gallery: FC = () => {
@@ -11,8 +10,8 @@ const Gallery: FC = () => {
   );
   const navigate = useNavigate();
 
-  const navHandler = (data: IGetPhotosApi) => {
-    localStorage.setItem('last-picked-image', JSON.stringify(data));
+  const navHandler = (id: number) => {
+    localStorage.setItem('last-picked-image-id', String(id));
     navigate('/details');
   };
 
@@ -22,7 +21,7 @@ const Gallery: FC = () => {
         {collection1.map((image) => (
           <Card key={image.id}>
             <SuspenseImage src={image.url} />
-            <ButtonStyled onClick={() => navHandler(image)}>More</ButtonStyled>
+            <ButtonStyled onClick={() => navHandler(image.id)}>More</ButtonStyled>
           </Card>
         ))}
       </CardsWrapperStyled>
