@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 import { useTypedDispatch, useTypedSelector } from 'redux/hooks';
-import { setCurrentPage, setIsLoading } from 'redux/slices/gallery.slice';
+import { setCurrentPage, setIsLoadingGlobal } from 'redux/slices/gallery.slice';
 import { getPhotosAsyncAction } from 'redux/features/getPhotos/getPhotos.actions';
 
 export const useGetPhotos = () => {
-  const { isLoading } = useTypedSelector((state) => state.gallery);
+  const { isLoadingGlobal } = useTypedSelector((state) => state.gallery);
   const dispatch = useTypedDispatch();
 
   function getPhotosHandler() {
-    dispatch(setIsLoading(true));
+    dispatch(setIsLoadingGlobal(true));
     dispatch(getPhotosAsyncAction());
   }
 
@@ -22,5 +22,5 @@ export const useGetPhotos = () => {
     getPhotosHandler();
   }, []);
 
-  return { isLoading };
+  return { isLoadingGlobal };
 };

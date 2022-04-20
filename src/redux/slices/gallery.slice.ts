@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ISetCollection, IState } from './types';
 
 const state: IState = {
-  isLoading: false,
+  isLoadingGlobal: false,
   collection1: [],
   collection2: [],
   collection3: [],
@@ -14,8 +14,8 @@ const gallerySlice = createSlice({
   name: 'gallery',
   initialState: state,
   reducers: {
-    setIsLoading: (state, { payload }: PayloadAction<boolean>) => {
-      state.isLoading = payload;
+    setIsLoadingGlobal: (state, { payload }: PayloadAction<boolean>) => {
+      state.isLoadingGlobal = payload;
     },
     setCollection: (state, { payload }: PayloadAction<ISetCollection>) => {
       if (payload.collection === 1) {
@@ -37,6 +37,6 @@ const gallerySlice = createSlice({
   },
 });
 
-export const { setIsLoading, setCollection, setCurrentPage } = gallerySlice.actions;
+export const { setIsLoadingGlobal, setCollection, setCurrentPage } = gallerySlice.actions;
 
 export const galleryReducer = gallerySlice.reducer;

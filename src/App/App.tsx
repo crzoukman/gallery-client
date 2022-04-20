@@ -6,11 +6,11 @@ import { AppContainerStyled, SpinnerStyled, WrapperStyled } from './App.styled';
 import { useGetPhotos } from './hooks/useGetPhotos';
 
 const App: FC = () => {
-  const { isLoading } = useGetPhotos();
+  const { isLoadingGlobal } = useGetPhotos();
 
   return (
     <AppContainerStyled>
-      {isLoading ? (
+      {isLoadingGlobal ? (
         <SpinnerStyled>
           <Spinner animation="border" variant="primary" />
         </SpinnerStyled>
