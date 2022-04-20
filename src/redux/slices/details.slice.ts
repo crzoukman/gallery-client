@@ -5,6 +5,7 @@ import { IDetailsState } from './types';
 const state: IDetailsState = {
   pickedPhotoData: null,
   isLoading: false,
+  cache: [] as IGetPhotosApi[],
 };
 
 const detailsSlice = createSlice({
@@ -17,9 +18,14 @@ const detailsSlice = createSlice({
     setIsLoading: (state, { payload }: PayloadAction<boolean>) => {
       state.isLoading = payload;
     },
+    addDataToCache: (state, { payload }: PayloadAction<IGetPhotosApi>) => {
+      const filtred = state.cache.filter((photo) => photo.id !== payload.id);
+      filtred.push(payload);
+      state.cache = filtred;
+    },
   },
 });
 
-export const { setPickedPhotoData, setIsLoading } = detailsSlice.actions;
+export const { setPickedPhotoData, setIsLoading, addDataToCache } = detailsSlice.actions;
 
 export const detailsReducer = detailsSlice.reducer;

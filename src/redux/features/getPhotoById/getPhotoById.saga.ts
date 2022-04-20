@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { setIsLoading, setPickedPhotoData } from 'redux/slices/details.slice';
+import { addDataToCache, setIsLoading, setPickedPhotoData } from 'redux/slices/details.slice';
 import { IGetPhotosApi } from '../getPhotos/types';
 import { getPhotoByIdAsyncAction } from './getPhotoById.actions';
 import { getPhotoByIdApi } from './getPhotoById.api';
@@ -12,6 +12,7 @@ function* getPhotoByIdWorker(action: PayloadAction<string>) {
   yield delay(config.FETCHING_DELAY);
   const photoData: AxiosResponse<IGetPhotosApi[]> = yield call(getPhotoByIdApi, action.payload);
   yield put(setPickedPhotoData(photoData.data[0]));
+  yield put(addDataToCache(photoData.data[0]));
   yield put(setIsLoading(false));
 }
 

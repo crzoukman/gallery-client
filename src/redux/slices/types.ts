@@ -13,6 +13,7 @@ export interface IGalleryState {
 export interface IDetailsState {
   pickedPhotoData: IGetPhotosApi | null;
   isLoading: boolean;
+  cache: IGetPhotosApi[];
 }
 
 export interface ISetCollection {
