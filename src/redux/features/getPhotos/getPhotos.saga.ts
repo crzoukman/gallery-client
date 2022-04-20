@@ -1,5 +1,5 @@
 import { takeEvery, call, fork, put } from 'redux-saga/effects';
-import { setCollection, setIsLoadingGlobal } from 'redux/slices/gallery.slice';
+import { setCollection, setIsLoading } from 'redux/slices/gallery.slice';
 import { getPhotosAsyncAction } from './getPhotos.actions';
 import { getPhotosApi } from './getPhotos.api';
 import { IGetPhotosApi } from './types';
@@ -27,7 +27,7 @@ function* fetchAll() {
 function* getPhotosWorker() {
   yield delay(config.FETCHING_DELAY);
   yield call(fetchAll);
-  yield put(setIsLoadingGlobal(false));
+  yield put(setIsLoading(false));
 }
 
 export function* getPhotosWatcher() {

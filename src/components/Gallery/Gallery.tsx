@@ -30,6 +30,7 @@ const Gallery: FC = () => {
         {collection2.map((image) => (
           <Card key={image.id}>
             <SuspenseImage src={image.url} />
+            <ButtonStyled onClick={() => navHandler(image.id)}>More</ButtonStyled>
           </Card>
         ))}
       </CardsWrapperStyled>
@@ -38,6 +39,7 @@ const Gallery: FC = () => {
         {collection3.map((image) => (
           <Card key={image.id}>
             <SuspenseImage src={image.url} />
+            <ButtonStyled onClick={() => navHandler(image.id)}>More</ButtonStyled>
           </Card>
         ))}
       </CardsWrapperStyled>
@@ -46,6 +48,7 @@ const Gallery: FC = () => {
         {collection4.map((image) => (
           <Card key={image.id}>
             <SuspenseImage src={image.url} />
+            <ButtonStyled onClick={() => navHandler(image.id)}>More</ButtonStyled>
           </Card>
         ))}
       </CardsWrapperStyled>

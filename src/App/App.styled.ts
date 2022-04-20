@@ -7,10 +7,3 @@ export const AppContainerStyled = styled.div`
 `;
 
 export const WrapperStyled = styled.div``;
-
-export const SpinnerStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;

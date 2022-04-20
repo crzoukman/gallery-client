@@ -1,7 +1,7 @@
 import { IGetPhotosApi } from 'redux/features/getPhotos/types';
 
 export interface IGalleryState {
-  isLoadingGlobal: boolean;
+  isLoading: boolean;
   collection1: IGetPhotosApi[];
   collection2: IGetPhotosApi[];
   collection3: IGetPhotosApi[];

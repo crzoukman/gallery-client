@@ -1,7 +1,9 @@
 import { FC, useEffect } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useTypedDispatch, useTypedSelector } from 'redux/hooks';
 import { setIsLoading } from 'redux/slices/details.slice';
+import { SpinnerStyled } from 'UI/Spinner.styled';
 import { getPhotoByIdAsyncAction } from './../../redux/features/getPhotoById/getPhotoById.actions';
 
 const Details: FC = () => {
@@ -22,7 +24,9 @@ const Details: FC = () => {
   return (
     <div>
       {isLoading ? (
-        <div>Loading</div>
+        <SpinnerStyled>
+          <Spinner animation="border" variant="primary" />
+        </SpinnerStyled>
       ) : (
         <div>
           <div>{pickedPhotoData?.id}</div>

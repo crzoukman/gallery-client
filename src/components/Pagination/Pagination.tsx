@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Pagination as PaginationX } from 'react-bootstrap';
-import { setCurrentPage, setIsLoadingGlobal } from 'redux/slices/gallery.slice';
+import { setCurrentPage, setIsLoading } from 'redux/slices/gallery.slice';
 import { getPhotosAsyncAction } from 'redux/features/getPhotos/getPhotos.actions';
 import { useTypedDispatch, useTypedSelector } from 'redux/hooks';
 import { config } from 'config';
@@ -10,7 +10,7 @@ const Pagination: FC = () => {
   const { currentPage } = useTypedSelector((state) => state.gallery);
 
   const pageFetching = () => {
-    dispatch(setIsLoadingGlobal(true));
+    dispatch(setIsLoading(true));
     dispatch(getPhotosAsyncAction());
   };
 
