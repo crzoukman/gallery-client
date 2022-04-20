@@ -7,7 +7,7 @@ const state: IGalleryState = {
   collection2: [],
   collection3: [],
   collection4: [],
-  currentPage: 0,
+  currentPage: 1,
   initialLoadCompleted: false,
 };
 

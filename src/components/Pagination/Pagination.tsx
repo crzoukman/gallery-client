@@ -22,14 +22,14 @@ const Pagination: FC = () => {
 
   return (
     <PaginationX>
-      <PaginationX.First disabled={currentPage === 0} onClick={() => switchPageHandler(0)} />
+      <PaginationX.First disabled={currentPage === 1} onClick={() => switchPageHandler(1)} />
 
       <PaginationX.Prev
-        disabled={currentPage === 0}
+        disabled={currentPage === 1}
         onClick={() => switchPageHandler(currentPage - 1)}
       />
 
-      <PaginationX.Item disabled={true}>{currentPage + 1}</PaginationX.Item>
+      <PaginationX.Item disabled={true}>{currentPage}</PaginationX.Item>
 
       <PaginationX.Next
         disabled={currentPage === config.MAX_PAGE}

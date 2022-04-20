@@ -6,6 +6,6 @@ export function getPhotosApi(collection: number) {
 
   return axios.get(
     config.BASE_URL +
-      `/albums/${collection}/photos?_start=${page ?? 0}&_limit=${config.FETCHING_ITEMS_LIMIT}`,
+      `/albums/${collection}/photos?_page=${page ?? 1}&_limit=${config.FETCHING_ITEMS_LIMIT}`,
   );
 }
