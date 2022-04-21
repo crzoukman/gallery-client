@@ -17,7 +17,8 @@ const About: FC = () => {
       <InfoStyled>
         <h2>About</h2>
         <div>
-          I'm a frontend developr. But, I also understand how backend works. I'm able to create fullstack application using Node.js + Express + MongoDB
+          I'm a frontend developr. But, I also understand how backend works. I'm able to create
+          fullstack application using Node.js + Express + MongoDB
         </div>
       </InfoStyled>
 
