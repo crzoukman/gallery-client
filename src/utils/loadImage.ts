@@ -6,6 +6,7 @@ type status = 'pending' | 'success' | 'error';
 
 function createResource<Payload>(asyncFn: () => Promise<Payload>): Resource<Payload> {
   let status: status = 'pending';
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   let result: any;
 
   const promise = asyncFn().then(
@@ -33,6 +34,7 @@ function createResource<Payload>(asyncFn: () => Promise<Payload>): Resource<Payl
   };
 }
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 const cache = new Map<string, any>();
 
 export function loadImage(source: string): Resource<string> {

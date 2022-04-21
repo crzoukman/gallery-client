@@ -6,7 +6,9 @@ export const AppContainerStyled = styled.div`
   padding: 0 40px;
 `;
 
-export const WrapperStyled = styled.div``;
+export const WrapperStyled = styled.div`
+  padding-bottom: 80px;
+`;
 
 export const ZoneStyled = styled.div`
   position: absolute;

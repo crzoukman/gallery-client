@@ -34,6 +34,7 @@ export const DataItem = styled.div`
   gap: 10px;
   padding: 20px 30px;
   border-radius: 10px;
+  min-width: 300px;
 
   & span {
     display: inline-block;

@@ -42,7 +42,6 @@ const Details: FC = () => {
       } else {
         dispatch(setPickedPhotoData(data));
         dispatch(setIsLoading(false));
-        console.log('data got from the cache');
       }
     } else {
       dispatch(getPhotoByIdAsyncAction(id ?? '1'));
