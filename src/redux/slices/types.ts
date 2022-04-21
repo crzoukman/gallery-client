@@ -16,6 +16,10 @@ export interface IDetailsState {
   cache: IGetPhotosApi[];
 }
 
+export interface IHeaderState {
+  isMenuOpen: boolean;
+}
+
 export interface ISetCollection {
   photos: IGetPhotosApi[];
   collection: number;

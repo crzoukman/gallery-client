@@ -5,6 +5,7 @@ import { getPhotoByIdWatcher } from './features/getPhotoById/getPhotoById.saga';
 import { getPhotosWatcher } from './features/getPhotos/getPhotos.saga';
 import { detailsReducer } from './slices/details.slice';
 import { galleryReducer } from './slices/gallery.slice';
+import { headerReducer } from './slices/header.slice';
 
 const sagaWiddleware = createSagaMiddleware();
 
@@ -16,6 +17,7 @@ export const store = configureStore({
   reducer: {
     gallery: galleryReducer,
     details: detailsReducer,
+    header: headerReducer,
   },
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware({ thunk: false }), sagaWiddleware],
 });
